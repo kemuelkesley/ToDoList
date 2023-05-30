@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gerenciamento de Tarefas</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+
+</head>
+<body class="bg-secondary">
+	<div class="container my-5 shadow-lg p-3 mb-5 bg-white rounded border">
+		<hr>
+			<h1 style="text-align: center;">ToDoList</h1>
+		<hr>
+		
+		
+		<div>
+			<a th:href="@{/lista/tarefas/ola}"class="btn btn-info btn-md mb-3 float-left">
+				<i class="fas fa-plus"></i> Adicionar Tarefa
+			</a>
+		</div>
+		
+				
+		<table border="1" class="table table-striped table-responsive-md ">
+			<thead align="center">
+				<tr>
+					<th>#</th>										
+					<th>Descrição</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tarefa : ${listaTarefas}">
+					<td align="center" th:text="${tarefa.id}"></td>
+					<td th:text="${tarefa.descricao}"/>
+					<td align="center">
+						<input type="checkbox" name="myBooleanVariable" th:checked="${myBooleanVariable}"/>
+					</td>
+					<td>
+						<p>My Day: <span th:text="${#calendars.format(today,'dd MMMM yyyy')}">30 May 2017</span></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	
+	<footer>
+		<div align="center">
+			<p>My System 2023 dev: kemMaster</p>
+		</div>
+	</footer>
+	
+</body>
+</html>
