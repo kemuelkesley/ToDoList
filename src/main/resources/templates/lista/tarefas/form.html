@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Sistema de Gestão de Pessoas</title>
+<title>ToDoList</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -17,16 +17,16 @@
 			<h2>ToDoList</h2>	
 			<hr>
 		
-			<h3 >Adicionar Tarefa</h3>
+			<h3 >Adicione uma Tarefa</h3>
 			<br><br>
-			<form action="#" th:action="@{/rh/pessoas/salvar}" th:object="${pessoa}" method="POST">
+			<form action="#" th:action="@{/lista/tarefas/salvar}" th:object="${tarefa}" method="POST">
 				<input type="hidden" id="id" th:field=*{id}>	
-				<input type="text" th:field="*{descricao}" placeholder="Adicione uma descrição" class="form-control mb-4 col-4"/>
+				<input type="text" th:field="*{descricao}" placeholder="Adicione uma descrição" class="form-control mb-3 col-6"/>
 				
 				<button type="submit" class="btn btn-info col-4">Salvar</button>		
 			</form>
 			<hr>
-		<a th:href="#">Retornar para minha lista.</a>
+		<a th:href="@{/lista/tarefas}">Retornar para minha lista de tarefas.</a>
 	</div>
 </body>
 </html>

@@ -19,9 +19,11 @@ public class Tarefa {
 	private String descricao;
 	
 	
-	protected Tarefa() {
+	public Tarefa() {
 		// Para o JPA		
 	}
+	
+	
 
 	
 	public Tarefa(String descricao) {
