@@ -2,6 +2,8 @@ package com.br.todolist.todolist.model;
 
 import java.util.Objects;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +16,7 @@ public class Tarefa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	
 	
 	private String descricao;

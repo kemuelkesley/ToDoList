@@ -9,24 +9,34 @@
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
 
+
 </head>
-<body>
-	<div class="container my-5 " align="center">
-				
-			<hr>
-			<h2>ToDoList</h2>	
-			<hr>
+<body class="bg-secondary">
+	<div class="container my-5 shadow-lg p-3 mb-5 bg-white rounded border " align="center">
+						
+			<div class="input-group mb-3 d-flex justify-content-center align-items-center">
+				<h1>To Do</h1>
+			</div>	
+	
 		
 			<h3 >Adicione uma Tarefa</h3>
 			<br><br>
 			<form action="#" th:action="@{/lista/tarefas/salvar}" th:object="${tarefa}" method="POST">
 				<input type="hidden" id="id" th:field=*{id}>	
-				<input type="text" th:field="*{descricao}" placeholder="Adicione uma descrição" class="form-control mb-3 col-6"/>
+				<input type="text" th:field="*{descricao}" 
+				placeholder="Adicione uma Tarefa" class="form-control mb-3 col-6" th:required="required"/>
 				
 				<button type="submit" class="btn btn-info col-4">Salvar</button>		
 			</form>
-			<hr>
-		<a th:href="@{/lista/tarefas}">Retornar para minha lista de tarefas.</a>
-	</div>
+			<br>
+			<a th:href="@{/lista/tarefas}">Retornar para minha lista de tarefas.</a>
+	</div>	
+	
+	<footer>
+		<div align="center">
+			<span style="font-size: 20px; font-weight: bold;" >My System 2023 dev: @kemMaster</span>
+		</div>
+	</footer>
+		
 </body>
 </html>

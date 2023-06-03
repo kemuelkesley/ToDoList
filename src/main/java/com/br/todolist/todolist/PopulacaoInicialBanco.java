@@ -32,6 +32,8 @@ public class PopulacaoInicialBanco implements CommandLineRunner{
 		tarefaRepo.save(tarefa2);
 		tarefaRepo.save(tarefa3);
 		tarefaRepo.save(tarefa4);
+		
+		tarefaRepo.flush();
 	}
 	
 	

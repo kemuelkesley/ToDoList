@@ -1,17 +1,17 @@
 package com.br.todolist.todolist.controller;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.br.todolist.todolist.model.Tarefa;
 import com.br.todolist.todolist.repository.TarefaRepository;
-
-import ch.qos.logback.core.rolling.helper.FileStoreUtil;
 
 @Controller
 public class TarefaController {
@@ -25,26 +25,48 @@ public class TarefaController {
 	@GetMapping("/lista/tarefas")
 	public String tarefas(Model model) {
 		model.addAttribute("listaTarefas", tarefaRepo.findAll());
-		System.out.println("ola mundooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
 		return "/lista/tarefas/index";
 	}
 
 	@GetMapping("lista/tarefas/nova")
 	public String novaTarefa(@ModelAttribute("tarefa") Tarefa tarefa) {
 		return "lista/tarefas/form";
-		
+
 	}
-	
+
 	@PostMapping("/lista/tarefas/salvar")
 	public String salvarTarefa(@ModelAttribute("tarefa") Tarefa tarefa, BindingResult bindingResult) {
-		
+
 		if (bindingResult.hasErrors()) {
 			return "rh/pessoas/form";
 		}
-		
+
 		tarefaRepo.save(tarefa);
 		return "redirect:/lista/tarefas";
-		
+
+	}
+
+	@GetMapping("/lista/tarefas/{id}")
+	public String alterarTarefa(@PathVariable("id") long id, Model model) throws IllegalAccessException {
+		Optional<Tarefa> tarefaOpt = tarefaRepo.findById(id);
+		if (tarefaOpt.isEmpty()) {
+			throw new IllegalAccessException("Tarefa invalida");
+		}
+
+		model.addAttribute("tarefa", tarefaOpt.get());
+		return "/lista/tarefas/form";
+	}
+
+	
+	@GetMapping("/lista/tarefas/excluir/{id}")
+	public String excluirTarefa(@PathVariable("id") long id) throws IllegalAccessException {
+		Optional<Tarefa> tareafaOpt = tarefaRepo.findById(id);
+		if (tareafaOpt.isEmpty()) {
+			throw new IllegalAccessException("Tarefa invalida");
+		}
+
+		tarefaRepo.delete(tareafaOpt.get());
+		return "redirect:/lista/tarefas";
 	}
 
 }
