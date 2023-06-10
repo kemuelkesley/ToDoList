@@ -2,6 +2,7 @@ package com.br.todolist.todolist.controller;
 
 import java.util.Optional;
 
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,7 @@ public class TarefaController {
 	@GetMapping("/lista/tarefas")
 	public String tarefas(Model model) {
 		model.addAttribute("listaTarefas", tarefaRepo.findAll());
+		model.addAttribute("tarefa", new Tarefa());
 		return "/lista/tarefas/index";
 	}
 
@@ -35,15 +37,15 @@ public class TarefaController {
 	}
 
 	@PostMapping("/lista/tarefas/salvar")
-	public String salvarTarefa(@ModelAttribute("tarefa") Tarefa tarefa, BindingResult bindingResult) {
+	public String salvarTarefa(@ModelAttribute("tarefa") Tarefa tarefa, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
-			return "rh/pessoas/form";
+			return "lista/tarefas";
 		}
 
 		tarefaRepo.save(tarefa);
+		model.addAttribute("listaTarefas", tarefaRepo.findAll());
 		return "redirect:/lista/tarefas";
-
 	}
 
 	@GetMapping("/lista/tarefas/{id}")
@@ -57,7 +59,6 @@ public class TarefaController {
 		return "/lista/tarefas/form";
 	}
 
-	
 	@GetMapping("/lista/tarefas/excluir/{id}")
 	public String excluirTarefa(@PathVariable("id") long id) throws IllegalAccessException {
 		Optional<Tarefa> tareafaOpt = tarefaRepo.findById(id);

@@ -17,12 +17,11 @@
 			<div class="input-group mb-3 d-flex justify-content-center align-items-center">
 				<h1>To Do</h1>
 			</div>	
-	
-		
-			<h3 >Adicione uma Tarefa</h3>
+
+			<h3 >Editar Tarefa</h3>
 			<br><br>
 			<form action="#" th:action="@{/lista/tarefas/salvar}" th:object="${tarefa}" method="POST">
-				<input type="hidden" id="id" th:field=*{id}>	
+				<input type="hidden" id="id" th:field=*{id}>
 				<input type="text" th:field="*{descricao}" 
 				placeholder="Adicione uma Tarefa" class="form-control mb-3 col-6" th:required="required"/>
 				
