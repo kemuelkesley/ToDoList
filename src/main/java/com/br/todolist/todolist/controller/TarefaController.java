@@ -1,6 +1,8 @@
 package com.br.todolist.todolist.controller;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -69,5 +71,20 @@ public class TarefaController {
 		tarefaRepo.delete(tareafaOpt.get());
 		return "redirect:/lista/tarefas";
 	}
+
+//	@GetMapping("/lista/tarefas")
+//	public String tarefasConcluida(Model model) {
+//		List<Tarefa> listaTarefas = tarefaRepo.findAll();
+//		model.addAttribute("listaTarefas", listaTarefas);
+//		model.addAttribute("tarefa", new Tarefa());
+//
+//		List<Boolean> tarefasConcluidas = listaTarefas.stream()
+//				.map(Tarefa::isCompletado)
+//				.collect(Collectors.toList());
+//		model.addAttribute("tarefasConcluidas", tarefasConcluidas);
+//
+//		return "/lista/tarefas/index";
+//	}
+
 
 }

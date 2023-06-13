@@ -1,0 +1,25 @@
+.cordefundo {
+     background: rgb(200, 200, 200);
+}
+
+/*
+.imagemDeFundo {
+    background-image: url("../image/image-toDo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.container-transparente {
+  opacity: 0.8; */
+/* Defina o valor de opacidade desejado (de 0 a 1) *//*
+
+}
+
+*/
+
+.concluido {
+    color: green;
+    text-decoration: line-through;
+}

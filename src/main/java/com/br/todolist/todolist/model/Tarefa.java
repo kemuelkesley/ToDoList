@@ -20,7 +20,8 @@ public class Tarefa {
 	
 	
 	private String descricao;
-	
+
+	protected boolean completado;
 	
 	public Tarefa() {
 		// Para o JPA		
@@ -53,6 +54,13 @@ public class Tarefa {
 		this.descricao = descricao;
 	}
 
+	public boolean isCompletado() {
+		return completado;
+	}
+
+	public void setCompletado(boolean completado) {
+		this.completado = completado;
+	}
 
 	@Override
 	public int hashCode() {
@@ -77,6 +85,6 @@ public class Tarefa {
 	public String toString() {
 		return "Tarefa [descricao=" + descricao + "]";
 	}
-	
-	
+
+
 }
