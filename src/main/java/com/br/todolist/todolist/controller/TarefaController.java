@@ -70,19 +70,4 @@ public class TarefaController {
 		return "redirect:/lista/tarefas";
 	}
 
-	//	@GetMapping("/lista/tarefas")
-	//	public String tarefasConcluida(Model model) {
-	//		List<Tarefa> listaTarefas = tarefaRepo.findAll();
-	//		model.addAttribute("listaTarefas", listaTarefas);
-	//		model.addAttribute("tarefa", new Tarefa());
-	//
-	//		List<Boolean> tarefasConcluidas = listaTarefas.stream()
-	//				.map(Tarefa::isCompletado)
-	//				.collect(Collectors.toList());
-	//		model.addAttribute("tarefasConcluidas", tarefasConcluidas);
-	//
-	//		return "/lista/tarefas/index";
-	//	}
-
-
 }

@@ -11,14 +11,11 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Tarefa {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	
-	
+
 	private String descricao;
 
 	protected boolean completado;
@@ -26,10 +23,7 @@ public class Tarefa {
 	public Tarefa() {
 		// Para o JPA		
 	}
-	
-	
 
-	
 	public Tarefa(String descricao) {
 		this.descricao = descricao;
 	}
