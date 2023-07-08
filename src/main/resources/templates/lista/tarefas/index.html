@@ -74,20 +74,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-
-        <!--       Dropdown-->
-
-        <div class="container my-2 dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button"  id="dropdownMenuButton"  data-mdb-toggle="dropdown" aria-expanded="false" >
-                Lista Completada
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Opção 1</a></li>
-                <li><a class="dropdown-item" href="#">Opção 2</a></li>
-                <li><a class="dropdown-item" href="#">Opção 3</a></li>
-            </ul>
-        </div>
+        </div>       
 
         <div class="container my-5 shadow-lg p-3 mb-5 bg-white rounded border">
             <form th:action="@{/lista/tarefas/salvar}" th:object="${tarefa}" method="POST">
