@@ -22,7 +22,7 @@
 
 			<h3>Editar Tarefa</h3>
 			<br><br>
-			<form action="#" th:action="@{/lista/tarefas/salvar}" th:object="${tarefa}" method="POST">
+			<form action="#" th:action="@{/tarefas/salvar}" th:object="${tarefa}" method="POST">
 				<input type="hidden" id="id" th:field=*{id}>
 				<input type="text" th:field="*{descricao}" 
 				placeholder="Adicione uma Tarefa" class="form-control mb-3 col-6" th:required="required"/>
@@ -30,7 +30,7 @@
 				<button type="submit" class="btn btn-info col-4">Salvar</button>		
 			</form>
 			<br>
-			<a th:href="@{/lista/tarefas}">Retornar para minha lista de tarefas.</a>
+			<a th:href="@{/tarefas}">Retornar para minha lista de tarefas.</a>
 	</div>	
 	
 	<div th:replace="~{footer-full :: footer-full}"></div>
