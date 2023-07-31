@@ -43,18 +43,16 @@
                     </tbody>
                 </table>
             </div>
-        </div>       
+        </div>      
 
         <div class="container my-5 shadow-lg p-3 mb-5 bg-white rounded border">
             <form th:action="@{/tarefas/salvar}" th:object="${tarefa}" method="POST">
                 <div class="input-group mb-1">
-                    <input type="text" class="form-control" th:errorClass="is-invalid" th:field="*{descricao}" placeholder="Adicione uma tarefa..."/>
-                      <div class="invalid-feedback" th:if="${#fields.hasErrors('descricao')}">
-                		<span th:errors="*{descricao}"></span>
-           			 </div>
-            		<div class="invalid-feedback" th:unless="${#fields.hasErrors('descricao')}">
-                		<span th:text="#{campo.vazio}"></span>
-            		</div>
+                    <input th:field="*{descricao}" type="text" class="form-control" th:errorClass="is-invalid" placeholder="Adicione uma tarefa..." required/>                    
+                    <div class="invalid-feedback" th:errors=*{descricao}>
+                    	O campo não pode ficar vazio.
+                    </div>
+                      
                     <div class="input-group-append">
                         <button class="btn btn-info " type="submit" style="line-height: 1.4;"><i class="bi bi-plus-circle-fill"></i> Adicionar</button>
                     </div>

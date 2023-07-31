@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.br.todolist.todolist.model.Tarefa;
 import com.br.todolist.todolist.repository.TarefaRepository;
 
-import jakarta.validation.Valid;
-
 @Controller
 public class TarefaController {
 	
@@ -40,7 +38,7 @@ public class TarefaController {
 	}
 
 	@PostMapping("/tarefas/salvar")
-	public String salvarTarefa(@ModelAttribute("tarefa") @Valid Tarefa tarefa, BindingResult bindingResult, Model model) {
+	public String salvarTarefa(@ModelAttribute("tarefa") Tarefa tarefa, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return "/tarefas/form";

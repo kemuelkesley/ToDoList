@@ -20,6 +20,7 @@ public class Tarefa {
 	private Long id;
 	
 	
+	
 	private String descricao;
 
 	protected boolean completado;
