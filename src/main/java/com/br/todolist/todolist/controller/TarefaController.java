@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,27 +17,28 @@ import com.br.todolist.todolist.repository.TarefaRepository;
 
 @Controller
 public class TarefaController {
-
+	
+	@Autowired
 	private TarefaRepository tarefaRepo;
 
 	public TarefaController(TarefaRepository tarefaRepo) {
 		this.tarefaRepo = tarefaRepo;
 	}
 
-	@GetMapping("/lista/tarefas")
+	@GetMapping("/tarefas")
 	public String tarefas(Model model) {
 		model.addAttribute("listaTarefas", tarefaRepo.findAll());
 		model.addAttribute("tarefa", new Tarefa());
-		return "/lista/tarefas/index";
+		return "/tarefas/index";
 	}
 
-	@GetMapping("lista/tarefas/nova")
+	@GetMapping("/tarefas/nova")
 	public String novaTarefa(@ModelAttribute("tarefa") Tarefa tarefa) {
-		return "lista/tarefas/form";
+		return "/tarefas/form";
 
 	}
 
-	@PostMapping("/lista/tarefas/salvar")
+	@PostMapping("/tarefas/salvar")
 	public String salvarTarefa(@ModelAttribute("tarefa") Tarefa tarefa, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
@@ -45,10 +47,10 @@ public class TarefaController {
 
 		tarefaRepo.save(tarefa);
 		model.addAttribute("listaTarefas", tarefaRepo.findAll());
-		return "redirect:/lista/tarefas";
+		return "redirect:/tarefas";
 	}
 
-	@GetMapping("/lista/tarefas/{id}")
+	@GetMapping("/tarefas/{id}")
 	public String alterarTarefa(@PathVariable("id") long id, Model model) throws IllegalAccessException {
 		Optional<Tarefa> tarefaOpt = tarefaRepo.findById(id);
 		if (tarefaOpt.isEmpty()) {
@@ -56,10 +58,10 @@ public class TarefaController {
 		}
 
 		model.addAttribute("tarefa", tarefaOpt.get());
-		return "/lista/tarefas/form";
+		return "/tarefas/form";
 	}
 
-	@GetMapping("/lista/tarefas/excluir/{id}")
+	@GetMapping("tarefas/excluir/{id}")
 	public String excluirTarefa(@PathVariable("id") long id) throws IllegalAccessException {
 		Optional<Tarefa> tareafaOpt = tarefaRepo.findById(id);
 		if (tareafaOpt.isEmpty()) {
@@ -67,7 +69,7 @@ public class TarefaController {
 		}
 
 		tarefaRepo.delete(tareafaOpt.get());
-		return "redirect:/lista/tarefas";
+		return "redirect:/tarefas";
 	}
 
 }

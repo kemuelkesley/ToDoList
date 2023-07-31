@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{base :: head}">	
+	<meta charset="UTF-8">
+	<title>ToDoList</title>
+
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+		crossorigin="anonymous">	
+	
+</head>
+<body class="">
+	
+	<div th:replace="~{base :: nav}"></div>
+
+	<div class="container my-5 shadow-lg p-3 mb-5 bg-white rounded border " align="center">
+						
+			<div class="input-group mb-3 d-flex justify-content-center align-items-center">
+				<h1>To-Do List</h1>
+			</div>	
+
+			<h3>Editar Tarefa</h3>
+			<br><br>
+			<form action="#" th:action="@{/tarefas/salvar}" th:object="${tarefa}" method="POST">
+				<input type="hidden" id="id" th:field=*{id}>
+				<input type="text" th:field="*{descricao}" 
+				placeholder="Adicione uma Tarefa" class="form-control mb-3 col-6" th:required="required"/>
+				
+				<button type="submit" class="btn btn-info col-4">Salvar</button>		
+			</form>
+			<br>
+			<a th:href="@{/tarefas}">Retornar para minha lista de tarefas.</a>
+	</div>	
+	
+	<div th:replace="~{footer-full :: footer-full}"></div>
+		
+</body>
+</html>

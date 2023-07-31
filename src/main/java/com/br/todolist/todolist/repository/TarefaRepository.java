@@ -7,5 +7,5 @@ import com.br.todolist.todolist.model.Tarefa;
 
 @Repository
 public interface TarefaRepository extends JpaRepository<Tarefa, Long>{
-
+	
 }
