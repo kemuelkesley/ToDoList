@@ -1,19 +1,20 @@
 package com.br.todolist.todolist.controller;
 
-import java.io.Serializable;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.br.todolist.todolist.model.Tarefa;
 import com.br.todolist.todolist.repository.TarefaRepository;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class TarefaController {
@@ -39,10 +40,10 @@ public class TarefaController {
 	}
 
 	@PostMapping("/tarefas/salvar")
-	public String salvarTarefa(@ModelAttribute("tarefa") Tarefa tarefa, BindingResult bindingResult, Model model) {
+	public String salvarTarefa(@ModelAttribute("tarefa") @Valid Tarefa tarefa, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
-			return "lista/tarefas";
+			return "/tarefas/form";
 		}
 
 		tarefaRepo.save(tarefa);
