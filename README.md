@@ -1,15 +1,11 @@
-## ToDoList
-#Sistema ToDoList
-
-<<<<<<< HEAD
-
-###Tela Inicial em desenvolvimento.
+# Sistema ToDoList
+### Tela Inicial em desenvolvimento.
 
 ![image](https://github.com/kemuelkesley/ToDoList/assets/79339726/785279a1-1400-4769-92ae-ec6fe167b487)
-=======
+
 # Projeto em desenvolvimento
 
-##Tela Inicial.
+## Tela Inicial.
 
 ![image](https://github.com/kemuelkesley/ToDoList/assets/79339726/785279a1-1400-4769-92ae-ec6fe167b487)
 
@@ -22,7 +18,10 @@
 
 ![image](https://github.com/kemuelkesley/ToDoList/assets/79339726/e61b6a42-391a-4c75-b034-13de219e0742)
 
+<h3>Projeto finalizado Telas finais</h3>
 
+![image](https://github.com/kemuelkesley/ToDoList/assets/79339726/9ef9e56d-a440-4aa4-9160-02b1645e577a)
 
+<h3>Tela de edição de tarefas finalizada</h3>
 
->>>>>>> 1a25634fc19050e666a07b3dd5e326ee2baf2dc6
+![image](https://github.com/kemuelkesley/ToDoList/assets/79339726/3cd3f853-e14d-42e8-935a-be20049a99f0)
