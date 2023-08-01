@@ -13,7 +13,7 @@
 - Thymeleaf 3.0.11 RELEASE
 - Bootstrap 5.3.0
 - MD Bootstrap 6.4.0
-- Bando de dados h2database
+- Banco de dados h2database
 
 ### Tela Inicial em desenvolvimento.
 
