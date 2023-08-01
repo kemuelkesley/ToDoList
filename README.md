@@ -1,5 +1,4 @@
 # Sistema ToDoList
-### Tela Inicial em desenvolvimento.
 
 ## Tecnologias Usadas
 
@@ -16,7 +15,7 @@
 - MD Bootstrap 6.4.0
 - Bando de dados h2database
 
-
+### Tela Inicial em desenvolvimento.
 
 ![image](https://github.com/kemuelkesley/ToDoList/assets/79339726/785279a1-1400-4769-92ae-ec6fe167b487)
 
