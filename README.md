@@ -14,6 +14,7 @@
 - Bootstrap 5.3.0
 - MD Bootstrap 6.4.0
 - Banco de dados h2database
+- Git
 
 ### Tela Inicial em desenvolvimento.
 
